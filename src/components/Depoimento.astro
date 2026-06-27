@@ -1,0 +1,129 @@
+---
+interface Props {
+  depoimento: {
+    pergunta: string;
+    resposta: string;
+  };
+}
+
+const { depoimento } = Astro.props;
+---
+
+<section class="depoimento-section section-padding">
+  <div class="container depoimento-container">
+    <div class="depoimento-content reveal">
+      <h2 class="depoimento-pergunta">{depoimento.pergunta}</h2>
+      <div class="section-underline"></div>
+      
+      <div class="quote-box">
+        <!-- Aspas Gigantes Decorativas SVG Abertura -->
+        <span class="quote-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor">
+            <path d="M464 256h-80v-64c0-35.3 28.7-64 64-64h16c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16h-16c-88.4 0-160 71.6-160 160v240c0 44.2 35.8 80 80 80h96c44.2 0 80-35.8 80-80V336c0-44.2-35.8-80-80-80zm-272 0h-80v-64c0-35.3 28.7-64 64-64h16c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16h-16C12.2 32 0 103.6 0 192v240c0 44.2 35.8 80 80 80h96c44.2 0 80-35.8 80-80V336c0-44.2-35.8-80-80-80z"/>
+          </svg>
+        </span>
+        
+        <blockquote class="quote-text">
+          {depoimento.resposta}
+        </blockquote>
+        
+        <!-- Aspas Gigantes Decorativas SVG Fechamento -->
+        <span class="quote-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor">
+            <path d="M464 32h-96c-44.2 0-80 35.8-80 80v144c0 44.2 35.8 80 80 80h80v64c0 35.3-28.7 64-64 64h-16c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16h16c88.4 0 160-71.6 160-160V112c0-44.2-35.8-80-80-80zm-272 0H96C51.8 32 16 67.8 16 112v144c0 44.2 35.8 80 80 80h80v64c0 35.3-28.7 64-64 64H76c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16h16c88.4 0 160-71.6 160-160V112c0-44.2-35.8-80-80-80z"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .depoimento-section {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .depoimento-container {
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .depoimento-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .depoimento-pergunta {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+  }
+
+  .section-underline {
+    width: 100px;
+    height: 2px;
+    background-color: var(--color-border);
+    margin-bottom: 40px;
+    border-radius: 1px;
+  }
+
+  .quote-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+    width: 100%;
+  }
+
+  .quote-text {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .quote-icon {
+    width: 50px;
+    height: 50px;
+    color: hsl(220, 10%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quote-icon svg {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .depoimento-pergunta {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .quote-text {
+      font-size: 1rem;
+      padding: 0 16px;
+    }
+    .quote-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>

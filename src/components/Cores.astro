@@ -1,0 +1,235 @@
+---
+interface Props {
+  cores: {
+    titulo: string;
+    opcoes: {
+      nome: string;
+      hex: string;
+    }[];
+  };
+}
+
+const { cores } = Astro.props;
+---
+
+<section id="cores" class="cores-section section-padding bg-dark-section">
+  <div class="container cores-container">
+    <div class="cores-info reveal">
+      <h2 class="section-title">{cores.titulo}</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc text-center">
+        Escolha a cor que melhor combina com a sua apresentação. Clique nos seletores abaixo para visualizar o acabamento premium da SD120.
+      </p>
+      
+      <!-- Seletores de Cores -->
+      <div class="cores-selectors">
+        {cores.opcoes.map((opcao, idx) => (
+          <button 
+            class={`color-selector-btn ${idx === 0 ? 'active' : ''}`}
+            data-color={opcao.hex}
+            data-name={opcao.nome}
+            style={`--btn-color: ${opcao.hex}`}
+            aria-label={`Visualizar cor ${opcao.nome}`}
+          >
+            <span class="color-dot"></span>
+            <span class="color-name">{opcao.nome}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Sapatilha Interativa SVG -->
+    <div class="cores-preview-box reveal delay-1">
+      <div class="interactive-canvas">
+        <svg id="ballet-shoe-svg" viewBox="0 0 400 300" width="100%" height="100%">
+          <!-- Defs para Sombras e Gradientes -->
+          <defs>
+            <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="2" dy="8" stdDeviation="6" flood-opacity="0.15" />
+            </filter>
+            <linearGradient id="sole-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#b08875" />
+              <stop offset="100%" stop-color="#8a6350" />
+            </linearGradient>
+          </defs>
+
+          <!-- Fundo decorativo -->
+          <circle cx="200" cy="150" r="110" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+          <circle cx="200" cy="150" r="130" fill="transparent" stroke="rgba(255,255,255,0.02)" stroke-width="1" stroke-dasharray="8 4" />
+
+          <!-- Pernas e Pé (Esboço vetorial elegante) -->
+          <path d="M120 -50 C120 40 140 100 160 140 C170 160 180 180 200 195 C220 210 250 220 280 220 C300 220 320 215 330 205 C310 195 285 190 265 185 C245 180 230 170 215 150 C195 120 180 60 180 -50 Z" fill="#fde6d8" opacity="0.85" />
+
+          <!-- Sapatilha (Parte Principal da Lona) -->
+          <path 
+            id="shoe-canvas" 
+            d="M175 125 C178 135 185 155 200 175 C215 195 240 212 280 212 C295 212 312 208 322 201 C325 199 320 190 310 188 C290 185 275 178 260 172 C240 164 225 150 212 132 C202 118 190 102 178 95 Z" 
+            fill="#e8c5b0" 
+            filter="url(#shadow)"
+            style="transition: fill 0.6s cubic-bezier(0.16, 1, 0.3, 1);"
+          />
+
+          <!-- Elásticos Cruzados -->
+          <path d="M185 110 L220 155 M195 130 L212 118 M178 95 L225 145" stroke="#f6c3ce" stroke-width="3" stroke-linecap="round" opacity="0.9" id="shoe-elastics" style="transition: stroke 0.6s cubic-bezier(0.16, 1, 0.3, 1);" />
+
+          <!-- Fita Elástica de Contorno -->
+          <path d="M178 95 C184 100 194 112 202 118 C212 132 225 150 240 164 C255 174 270 180 290 184 C305 187 312 192 312 195" fill="none" stroke="#e0ac9b" stroke-width="2" id="shoe-binding" style="transition: stroke 0.6s cubic-bezier(0.16, 1, 0.3, 1);" />
+
+          <!-- Sola de Camurça Dividida (Split Sole) -->
+          <path d="M225 203 C235 208 245 210 255 208 C260 207 258 202 248 202 C238 202 230 203 225 203 Z" fill="url(#sole-gradient)" />
+          <path d="M295 209 C302 207 308 202 312 197 C314 195 311 193 305 195 C298 197 292 205 295 209 Z" fill="url(#sole-gradient)" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cores-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cores-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary);
+    margin: -8px auto 24px auto;
+    border-radius: 2px;
+  }
+
+  .section-desc {
+    font-size: 1.1rem;
+    color: hsl(220, 10%, 75%);
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+  }
+
+  .cores-selectors {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .color-selector-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-title);
+    font-weight: 600;
+    transition: var(--transition-smooth);
+  }
+
+  .color-selector-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .color-selector-btn.active {
+    background: var(--color-white);
+    color: var(--color-dark);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-white);
+  }
+
+  .color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--btn-color);
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: var(--transition-smooth);
+  }
+
+  .color-selector-btn.active .color-dot {
+    transform: scale(1.2);
+  }
+
+  .color-name {
+    font-size: 0.95rem;
+  }
+
+  /* --- PREVIEW BOX --- */
+  .cores-preview-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 70%);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+  }
+
+  .interactive-canvas {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+  }
+
+  @media (max-width: 992px) {
+    .cores-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>
+
+<script>
+  // Script interativo de troca de cores do SVG
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.color-selector-btn');
+    const shoeCanvas = document.getElementById('shoe-canvas');
+    const shoeElastics = document.getElementById('shoe-elastics');
+    const shoeBinding = document.getElementById('shoe-binding');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class de todos
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // Adiciona active no botão clicado
+        button.classList.add('active');
+        
+        const hexColor = button.getAttribute('data-color');
+        
+        // Altera a cor no SVG
+        if (shoeCanvas && hexColor) {
+          shoeCanvas.setAttribute('fill', hexColor);
+          
+          // Lógica inteligente para as fitas elásticas e contorno acompanharem de forma harmônica
+          if (hexColor === '#ffffff') {
+            // Se for branco, elásticos brancos/cinza bem claro
+            if (shoeElastics) shoeElastics.setAttribute('stroke', '#e0e0e0');
+            if (shoeBinding) shoeBinding.setAttribute('stroke', '#eeeeee');
+          } else if (hexColor === '#1a1a1a') {
+            // Se for preto, elásticos cinza escuro/preto
+            if (shoeElastics) shoeElastics.setAttribute('stroke', '#333333');
+            if (shoeBinding) shoeBinding.setAttribute('stroke', '#222222');
+          } else {
+            // Rosa e Nude acompanham a cor original aproximada
+            if (shoeElastics) shoeElastics.setAttribute('stroke', '#f6c3ce');
+            if (shoeBinding) shoeBinding.setAttribute('stroke', '#e0ac9b');
+          }
+        }
+      });
+    });
+  });
+</script>

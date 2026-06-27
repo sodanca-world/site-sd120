@@ -1,0 +1,240 @@
+---
+interface Props {
+  contato: {
+    titulo: string;
+    nome: string;
+    email: string;
+    mensagem: string;
+    btn_enviar: string;
+  };
+}
+
+const { contato } = Astro.props;
+---
+
+<section id="contato" class="contato-section section-padding">
+  <div class="container contato-container">
+    <div class="contato-card reveal">
+      <h2 class="contato-title">{contato.titulo}</h2>
+      <div class="section-underline"></div>
+      
+      <form class="contato-form" id="contato-form">
+        <!-- Grid de 2 colunas para Nome e E-mail -->
+        <div class="form-row">
+          <div class="input-group">
+            <input type="text" id="nome" name="nome" required placeholder=" " />
+            <label for="nome">{contato.nome}</label>
+          </div>
+          
+          <div class="input-group">
+            <input type="email" id="email" name="email" required placeholder=" " />
+            <label for="email">{contato.email}</label>
+          </div>
+        </div>
+        
+        <!-- Campo de Mensagem -->
+        <div class="input-group">
+          <textarea id="mensagem" name="mensagem" required rows="4" placeholder=" "></textarea>
+          <label for="mensagem">{contato.mensagem}</label>
+        </div>
+        
+        <!-- Botão de Envio -->
+        <button type="submit" class="btn btn-primary btn-large btn-submit" id="btn-submit">
+          <span class="btn-text-content">{contato.btn_enviar}</span>
+        </button>
+      </form>
+      
+      <div id="contato-feedback" class="contato-feedback-msg"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contato-section {
+    background-color: var(--color-light);
+    position: relative;
+  }
+
+  .contato-container {
+    max-width: 800px;
+  }
+
+  .contato-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 50px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .contato-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+
+  .section-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary);
+    margin: 0 auto 40px auto;
+    border-radius: 2px;
+  }
+
+  .contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* --- LABELS FLUTUANTES --- */
+  .input-group {
+    position: relative;
+    width: 100%;
+  }
+
+  .input-group input, 
+  .input-group textarea {
+    width: 100%;
+    padding: 18px 20px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    outline: none;
+    transition: var(--transition-smooth);
+  }
+
+  .input-group textarea {
+    resize: vertical;
+  }
+
+  .input-group label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    pointer-events: none;
+    transition: var(--transition-smooth);
+    background-color: transparent;
+  }
+
+  .input-group textarea ~ label {
+    top: 24px;
+    transform: none;
+  }
+
+  /* Efeito de flutuação no foco ou preenchido */
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: var(--color-primary);
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.1);
+  }
+
+  .input-group input:focus ~ label,
+  .input-group input:not(:placeholder-shown) ~ label,
+  .input-group textarea:focus ~ label,
+  .input-group textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    padding: 2px 8px;
+    transform: translateY(-50%);
+  }
+
+  .btn-submit {
+    width: 100%;
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+
+  .contato-feedback-msg {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: var(--transition-smooth);
+  }
+
+  .contato-feedback-msg.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contato-feedback-msg.success {
+    color: #2e7d32;
+  }
+
+  .contato-feedback-msg.error {
+    color: #c62828;
+  }
+
+  @media (max-width: 768px) {
+    .contato-card {
+      padding: 30px 20px;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contato-form');
+    const feedback = document.getElementById('contato-feedback');
+    const btnSubmit = document.getElementById('btn-submit');
+
+    if (form && feedback && btnSubmit) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const originalText = btnSubmit.querySelector('.btn-text-content')?.textContent;
+        const textSpan = btnSubmit.querySelector('.btn-text-content');
+        
+        if (textSpan) {
+          textSpan.textContent = 'Enviando...';
+        }
+        btnSubmit.setAttribute('disabled', 'true');
+        feedback.className = 'contato-feedback-msg';
+
+        // Simulação assíncrona de envio
+        setTimeout(() => {
+          feedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+          feedback.className = 'contato-feedback-msg show success';
+          
+          if (textSpan && originalText) {
+            textSpan.textContent = originalText;
+          }
+          btnSubmit.removeAttribute('disabled');
+          (form as HTMLFormElement).reset();
+
+          // Oculta feedback após 6 segundos
+          setTimeout(() => {
+            feedback.className = 'contato-feedback-msg';
+          }, 6000);
+        }, 1500);
+      });
+    }
+  });
+</script>

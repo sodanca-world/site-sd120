@@ -1,0 +1,509 @@
+{
+  "configuracoes": {
+    "empresa_nome": "Só Dança",
+    "empresa_logo_imagem": "logo-sodanca.svg",
+    "empresa_whatsapp": "5511999999999",
+    "empresa_email": "contato@sodanca.com.br",
+    "empresa_site_base": "https://sodanca.com"
+  },
+  "idiomas": {
+    "pt": {
+      "nome": "Português",
+      "flag": "🇧🇷",
+      "seo": {
+        "titulo": "SD120 Super Pró Só Dança - Sapatilha de Meia-Ponta Premium",
+        "descricao": "A Só Dança inova e apresenta um exclusivo conceito de pé direito e pé esquerdo para sapatilha de meia-ponta.",
+        "regiao": "BR-SP",
+        "cidade": "São Paulo",
+        "llm_descricao": "Landing page oficial da sapatilha de meia-ponta premium SD120 Super Pró Só Dança, apresentando tecnologia de pé esquerdo e direito, ajuste anatômico e fabricação artesanal."
+      },
+      "hero": {
+        "titulo": "SD120 Super Pró Só Dança",
+        "subtitulo": "A Só Dança inova e apresenta um exclusivo conceito de pé direito e pé esquerdo para sapatilha de meia-ponta.",
+        "btn_contato": "Fale Conosco"
+      },
+      "diferenciais": {
+        "titulo": "CONFIRA OS DIFERENCIAIS DA SD120 SUPER PRÓ SÓ DANÇA",
+        "itens": [
+          "Sapatilha pé direito e pé esquerdo",
+          "Lona Stretch - Tecido elástico que promove incrível conforto e aderência aos contornos dos pés.",
+          "Costura Central Simples - Melhor ajuste",
+          "Sola Especial - Maior sensibilidade e conexão com o piso",
+          "Fita Elástica, sem necessidade de nós, proporcionando maior conforto e praticidade",
+          "Elásticos Cruzados Costurados"
+        ]
+      },
+      "cores": {
+        "titulo": "CORES QUE COMBINAM COM SEU FIGURINO",
+        "opcoes": [
+          { "nome": "Nude", "hex": "#e8c5b0" },
+          { "nome": "Rosa", "hex": "#f6c3ce" },
+          { "nome": "Preto", "hex": "#1a1a1a" },
+          { "nome": "Branco", "hex": "#ffffff" }
+        ]
+      },
+      "tecnologia": {
+        "titulo": "TECNOLOGIA E COMPETÊNCIA NA MONTAGEM",
+        "colunas": [
+          {
+            "texto": "Fabricação que mistura a tecnologia dos equipamentos e da matéria-prima com o refinamento de artesãos montadores."
+          },
+          {
+            "texto": "A estrutura do tecido elástico, por nós chamado Lona Stretch, tem um ajuste inigualável, muito confortável, que se ajusta a todos os tipos de pés, contornando perfeitamente o arco e os dedos, sem deixar tecido sobrando."
+          },
+          {
+            "texto": "A sola foi planejada para dar mais resistência e ao mesmo tempo reduzir o atrito e o desconforto causado pelas saliências típicas das sapatilhas de meia-ponta."
+          }
+        ]
+      },
+      "ajuste": {
+        "titulo": "SD120 SUPER PRÓ UM AJUSTE PERFEITO!",
+        "descricao": "Além de toda essa facilidade de ajuste, a SD120 Super Pró oferece também várias larguras de fôrmas e tamanhos de meio em meio número, assim, todos – de crianças, iniciantes até adultos, bailarinos profissionais – podem desfrutar do conforto e precisão que só a Só Dança oferece.",
+        "bullets": [
+          "Lona Stretch",
+          "Larguras: A – B – C – D – E – EE",
+          "Tamanhos: 2 al 11½ (A – B – C – D)",
+          "Tamanhos: 5 al 11½ (E – EE)"
+        ]
+      },
+      "video": {
+        "titulo": "VEJA DICAS DO DR. JOSÉ LUIZ",
+        "subtitulo": "O contato dos pés com o solo é de extrema importância",
+        "youtubeId": "TXWWmKukcxY",
+        "legenda": "SD120 Só Dança (PT)"
+      },
+      "depoimento": {
+        "pergunta": "O QUE É UMA BOA SAPATILHA PARA VOCÊ?",
+        "resposta": "Essa sapatilha é muito confortável. A sola é lisa e sem aquelas ondulações. Isso é muito bom porque você dança com maior sensibilidade... a gente sente mais os pés em contato com o piso. Isso proporciona maior precisão. Muito bom saber que os produtos para a dança, assim como tudo hoje em dia, também estão evoluindo."
+      },
+      "newsletter": {
+        "titulo": "NEWSLETTER",
+        "subtitulo": "Receba novidades e ofertas exclusivas da Só Dança.",
+        "placeholder": "Digite seu e-mail...",
+        "btn_texto": "Inscrever"
+      },
+      "contato": {
+        "titulo": "QUERO COMPRAR",
+        "nome": "Nome",
+        "email": "E-mail",
+        "mensagem": "Mensagem",
+        "btn_enviar": "ENVIAR MENSAGEM"
+      }
+    },
+    "en": {
+      "nome": "English",
+      "flag": "🇺🇸",
+      "seo": {
+        "titulo": "SD120 Super Pro Só Dança - Premium Ballet Flat Shoes",
+        "descricao": "Só Dança innovates and introduces a unique concept of right and left foot for ballet shoes.",
+        "regiao": "US-NY",
+        "cidade": "New York",
+        "llm_descricao": "Official landing page for the premium ballet shoe SD120 Super Pro by Só Dança, showcasing anatomical fit, left/right foot engineering, and handcrafted excellence."
+      },
+      "hero": {
+        "titulo": "SD120 Super Pro Só Dança",
+        "subtitulo": "Só Dança innovates and introduces a unique concept of right and left foot for ballet shoes.",
+        "btn_contato": "Contact Us"
+      },
+      "diferenciais": {
+        "titulo": "CHECK SD120 SUPER PRO SÓ DANÇA DIFFERENTIALS",
+        "itens": [
+          "Right and left foot shoe",
+          "Stretch Canvas - Elastic fabric that promotes incredible comfort and fits to the contours of the feet",
+          "Single Center Seam - Better fit",
+          "Special Sole - Greater sensitivity and connection to the floor",
+          "Elastic Ribbon, no need for knots, providing greater comfort and practicality",
+          "Pre-sewn Criss-cross Elastics"
+        ]
+      },
+      "cores": {
+        "titulo": "COLORS TO MATCH WITH YOUR COSTUME",
+        "opcoes": [
+          { "nome": "Nude", "hex": "#e8c5b0" },
+          { "nome": "Pink", "hex": "#f6c3ce" },
+          { "nome": "Black", "hex": "#1a1a1a" },
+          { "nome": "White", "hex": "#ffffff" }
+        ]
+      },
+      "tecnologia": {
+        "titulo": "TECHNOLOGY AND SKILL FOR ASSEMBLY",
+        "colunas": [
+          {
+            "texto": "Manufacturing that combines equipment and raw material technology with the refinement of assembly craftsmen."
+          },
+          {
+            "texto": "The structure of the elastic fabric, which we call Stretch Canvas, has an unmatchable, very comfortable fit that adapts to all types of feet, perfectly contouring the arch and toes, without leaving leftover fabric."
+          },
+          {
+            "texto": "The sole was designed to provide greater durability while reducing friction and discomfort caused by the typical bumps of split-sole shoes."
+          }
+        ]
+      },
+      "ajuste": {
+        "titulo": "SD120 SUPER PRO A PERFECT FIT!",
+        "descricao": "In addition to all this ease of adjustment, the SD120 Super Pro also offers various width fittings and half sizes, so everyone – from children, beginners to adults, professional dancers – can enjoy the comfort and precision that only Só Dança offers.",
+        "bullets": [
+          "Stretch Canvas",
+          "Widths: A – B – C – D – E – EE",
+          "Sizes: 2 to 11½ (A – B – C – D)",
+          "Sizes: 5 to 11½ (E – EE)"
+        ]
+      },
+      "video": {
+        "titulo": "SEE NOW THE DR. JOSÉ LUIZ'S TIPS",
+        "subtitulo": "Foot contact with the ground is of utmost importance",
+        "youtubeId": "ur8UTq5X8bI",
+        "legenda": "SD120 Só Dança (EN)"
+      },
+      "depoimento": {
+        "pergunta": "WHAT IS A GOOD BALLET SHOE FOR YOU?",
+        "resposta": "This shoe is very comfortable. The sole is smooth and without those bumps. This is very good because you dance with greater sensitivity... we feel our feet more in contact with the floor. This provides greater precision. Very good to know that products for dance, like everything nowadays, are also evolving."
+      },
+      "newsletter": {
+        "titulo": "NEWSLETTER",
+        "subtitulo": "Sign up to our newsletter for exclusive news.",
+        "placeholder": "Enter your email...",
+        "btn_texto": "Subscribe"
+      },
+      "contato": {
+        "titulo": "I WANT TO BUY",
+        "nome": "Name",
+        "email": "Email",
+        "mensagem": "Message",
+        "btn_enviar": "SEND MESSAGE"
+      }
+    },
+    "au": {
+      "nome": "Australia",
+      "flag": "🇦🇺",
+      "seo": {
+        "titulo": "SD120 Super Pro Só Dança Australia - Premium Ballet Flat Shoes",
+        "descricao": "Só Dança innovates and introduces a unique concept of right and left foot for ballet shoes in Australia.",
+        "regiao": "AU-NSW",
+        "cidade": "Sydney",
+        "llm_descricao": "Official Australian landing page for the premium ballet shoe SD120 Super Pro by Só Dança, showcasing anatomical fit, left/right foot engineering, and handcrafted excellence."
+      },
+      "hero": {
+        "titulo": "SD120 Super Pro Só Dança",
+        "subtitulo": "Só Dança innovates and introduces a unique concept of right and left foot for ballet shoes.",
+        "btn_contato": "Contact Us"
+      },
+      "diferenciais": {
+        "titulo": "CHECK SD120 SUPER PRO SÓ DANÇA DIFFERENTIALS",
+        "itens": [
+          "Right and left foot shoe",
+          "Stretch Canvas - Elastic fabric that promotes incredible comfort and fits to the contours of the feet",
+          "Single Center Seam - Better fit",
+          "Special Sole - Greater sensitivity and connection to the floor",
+          "Elastic Ribbon, no need for knots, providing greater comfort and practicality",
+          "Pre-sewn Criss-cross Elastics"
+        ]
+      },
+      "cores": {
+        "titulo": "COLORS TO MATCH WITH YOUR COSTUME",
+        "opcoes": [
+          { "nome": "Nude", "hex": "#e8c5b0" },
+          { "nome": "Pink", "hex": "#f6c3ce" },
+          { "nome": "Black", "hex": "#1a1a1a" },
+          { "nome": "White", "hex": "#ffffff" }
+        ]
+      },
+      "tecnologia": {
+        "titulo": "TECHNOLOGY AND SKILL FOR ASSEMBLY",
+        "colunas": [
+          {
+            "texto": "Manufacturing that combines equipment and raw material technology with the refinement of assembly craftsmen."
+          },
+          {
+            "texto": "The structure of the elastic fabric, which we call Stretch Canvas, has an unmatchable, very comfortable fit that adapts to all types of feet, perfectly contouring the arch and toes, without leaving leftover fabric."
+          },
+          {
+            "texto": "The sole was designed to provide greater durability while reducing friction and discomfort caused by the typical bumps of split-sole shoes."
+          }
+        ]
+      },
+      "ajuste": {
+        "titulo": "SD120 SUPER PRO A PERFECT FIT!",
+        "descricao": "In addition to all this ease of adjustment, the SD120 Super Pro also offers various width fittings and half sizes, so everyone – from children, beginners to adults, professional dancers – can enjoy the comfort and precision that only Só Dança offers.",
+        "bullets": [
+          "Stretch Canvas",
+          "Widths: A – B – C – D – E – EE",
+          "Sizes: 2 to 11½ (A – B – C – D)",
+          "Sizes: 5 to 11½ (E – EE)"
+        ]
+      },
+      "video": {
+        "titulo": "SEE NOW THE DR. JOSÉ LUIZ'S TIPS",
+        "subtitulo": "Foot contact with the ground is of utmost importance",
+        "youtubeId": "ur8UTq5X8bI",
+        "legenda": "SD120 Só Dança (EN)"
+      },
+      "depoimento": {
+        "pergunta": "WHAT IS A GOOD BALLET SHOE FOR YOU?",
+        "resposta": "This shoe is very comfortable. The sole is smooth and without those bumps. This is very good because you dance with greater sensitivity... we feel our feet more in contact with the floor. This provides greater precision. Very good to know that products for dance, like everything nowadays, are also evolving."
+      },
+      "newsletter": {
+        "titulo": "NEWSLETTER",
+        "subtitulo": "Sign up to our newsletter for exclusive news.",
+        "placeholder": "Enter your email...",
+        "btn_texto": "Subscribe"
+      },
+      "contato": {
+        "titulo": "I WANT TO BUY",
+        "nome": "Name",
+        "email": "Email",
+        "mensagem": "Message",
+        "btn_enviar": "SEND MESSAGE"
+      }
+    },
+    "fr": {
+      "nome": "France",
+      "flag": "🇫🇷",
+      "seo": {
+        "titulo": "SD120 Super Pró Só Dança - Demi-Pointes Haut de Gamme",
+        "descricao": "Só Dança innove et propose un concept unique de pied droit et pied gauche pour les demi-pointes.",
+        "regiao": "FR-IDF",
+        "cidade": "Paris",
+        "llm_descricao": "Page de présentation officielle des demi-pointes de ballet haut de gamme SD120 Super Pró de Só Dança, mettant en valeur l'ajustement anatomique, la conception pied gauche/droit et le savoir-faire artisanal."
+      },
+      "hero": {
+        "titulo": "SD120 Super Pró Só Dança",
+        "subtitulo": "Só Dança innove et propose un concept unique de pied droit et pied gauche pour les demi-pointes.",
+        "btn_contato": "Nous Contacter"
+      },
+      "diferenciais": {
+        "titulo": "DÉCOUVREZ LES AVANTAGES SD120 SUPER PRÓ SÓ DANÇA",
+        "itens": [
+          "Chaussure pied droit et pied gauche",
+          "Toile Stretch - Tissu élastique qui favorise un confort incroyable et une adhérence aux contours des pieds",
+          "Couture centrale simple - Meilleur ajustement",
+          "Semelle spéciale - Plus grande sensibilité et connexion avec le sol",
+          "Ruban élastique, pas besoin de nœuds, offrant plus de confort et de praticité",
+          "Élastiques croisés cousus"
+        ]
+      },
+      "cores": {
+        "titulo": "DES COULEURS QUI SE MARIENT AVEC VOTRE GARDE-ROBE",
+        "opcoes": [
+          { "nome": "Saumon", "hex": "#e8c5b0" },
+          { "nome": "Rosa", "hex": "#f6c3ce" },
+          { "nome": "Noir", "hex": "#1a1a1a" },
+          { "nome": "Blanc", "hex": "#ffffff" }
+        ]
+      },
+      "tecnologia": {
+        "titulo": "TECHNOLOGIE ET COMPÉTENCE DANS L'ASSEMBLAGE",
+        "colunas": [
+          {
+            "texto": "Une fabrication qui allie la technologie des équipements et des matières premières au raffinement des monteurs artisans."
+          },
+          {
+            "texto": "La structure du tissu élastique, appelé par nous Toile Stretch, possède un ajustement inégalable et très confortable qui s'adapte à tous types de pieds, épousant parfaitement la voûte plantaire et les orteils, sans laisser d'excès de tissu."
+          },
+          {
+            "texto": "La semelle a été conçue pour offrir plus de résistance tout en réduisant les frottements et l'inconfort causés par les bosses typiques des demi-pointes."
+          }
+        ]
+      },
+      "ajuste": {
+        "titulo": "SD120 SUPER PRÓ UN AJUSTEMENT PARFAIT !",
+        "descricao": "En plus de cette grande facilité d'ajustement, la SD120 Super Pró propose également plusieurs largeurs de forme et demi-tailles, afin que tous – des enfants, débutants aux adultes, danseurs professionnels – puissent profiter du confort et de la précision que seule Só Dança offre.",
+        "bullets": [
+          "Toile Stretch",
+          "Largeurs : A – B – C – D – E – EE",
+          "Tailles : 2 au 11½ (A – B – C – D)",
+          "Tailles : 5 au 11½ (E – EE)"
+        ]
+      },
+      "video": {
+        "titulo": "VOICI LES CONSEILS DU DR JOSÉ LUIZ",
+        "subtitulo": "Le contact des pieds avec le sol est d'une importance extrême",
+        "youtubeId": "cUCTsgY63-E",
+        "legenda": "SD120 Só Dança (FR)"
+      },
+      "depoimento": {
+        "pergunta": "QU'EST-CE QU'UNE BONNE DEMI-POINTE POUR VOUS ?",
+        "resposta": "Ce chausson est très confortable. La semelle est lisse et sans ces bosses. C'est très bien car on danse avec une plus grande sensibilité... on sent davantage ses pieds en contact avec le sol. Cela permet une plus grande précision. C'est formidable de voir que les produits pour la danse, comme tout aujourd'hui, évoluent aussi."
+      },
+      "newsletter": {
+        "titulo": "NEWSLETTER",
+        "subtitulo": "Inscrivez-vous à notre newsletter pour des nouvelles exclusives.",
+        "placeholder": "Entrez votre adresse email...",
+        "btn_texto": "S'abonner"
+      },
+      "contato": {
+        "titulo": "DES DOUTES?",
+        "nome": "Nom",
+        "email": "Email",
+        "mensagem": "Message",
+        "btn_enviar": "ENVOYER MESSAGE"
+      }
+    },
+    "it": {
+      "nome": "Italia",
+      "flag": "🇮🇹",
+      "seo": {
+        "titulo": "SD120 Super Pro Só Dança - Scarpette da Mezza Punta Premium",
+        "descricao": "Só Dança innova e presenta un concetto unico di scarpetta destra e sinistra per le mezze punte.",
+        "regiao": "IT-RM",
+        "cidade": "Roma",
+        "llm_descricao": "Pagina di presentazione ufficiale delle mezze punte da danza classica di alta gamma SD120 Super Pro di Só Dança, che evidenzia la vestibilità anatomica, l'ingegneria del piede destro/sinistro e la manifattura artigianale."
+      },
+      "hero": {
+        "titulo": "SD120 Super Pro Só Dança",
+        "subtitulo": "Só Dança innova e presenta un concetto unico di scarpetta destra e sinistra per le mezze punte.",
+        "btn_contato": "Contattaci"
+      },
+      "diferenciais": {
+        "titulo": "SCOPRI I PUNTI DI FORZA DELLA SD120 SUPER PRO SÓ DANÇA",
+        "itens": [
+          "Scarpetta piede destro e piede sinistro",
+          "Tela Stretch - Tessuto elastico che favorisce un incredibile comfort e aderenza ai contorni del piede",
+          "Cucitura centrale semplice - Vestibilità migliore",
+          "Suola speciale - Maggiore sensibilità e connessione con il pavimento",
+          "Nastro elastico, senza necessità di nodi, che garantisce maggior comfort e praticità",
+          "Elastici incrociati cuciti"
+        ]
+      },
+      "cores": {
+        "titulo": "COLORI DA ABBINARE AL TUO COSTUME",
+        "opcoes": [
+          { "nome": "Nudo", "hex": "#e8c5b0" },
+          { "nome": "Rosa", "hex": "#f6c3ce" },
+          { "nome": "Nero", "hex": "#1a1a1a" },
+          { "nome": "Bianco", "hex": "#ffffff" }
+        ]
+      },
+      "tecnologia": {
+        "titulo": "TECNOLOGIA E COMPETENZA NELL'ASSEMBLAGGIO",
+        "colunas": [
+          {
+            "texto": "Una produzione che unisce la tecnologia dei macchinari e delle materie prime alla raffinatezza degli artigiani montatori."
+          },
+          {
+            "texto": "La struttura del tessuto elastico, da noi chiamato Tela Stretch, ha una calzata impareggiabile e molto confortevole che si adatta a tutti i tipi di piedi, avvolgendo perfettamente l'arco e le dita, senza lasciare tessuto in eccesso."
+          },
+          {
+            "texto": "La suola è stata progettata per offrire maggiore resistenza e allo stesso tempo ridurre l'attrito e il fastidio causati dalle tipiche sporgenze delle scarpette da mezza punta."
+          }
+        ]
+      },
+      "ajuste": {
+        "titulo": "SD120 SUPER PRO UNA VESTIBILITÀ PERFETTA!",
+        "descricao": "Oltre a tutta questa facilità di regolazione, la SD120 Super Pro offre anche diverse larghezze di pianta e mezze misure, in modo che tutti – dai bambini, principianti fino agli adulti, ballerini professionisti – possano godere del comfort e della precisione che solo Só Dança offre.",
+        "bullets": [
+          "Tela Stretch",
+          "Larghezze: A – B – C – D – E – EE",
+          "Taglie: 2 al 11½ (A – B – C – D)",
+          "Taglie: 5 al 11½ (E – EE)"
+        ]
+      },
+      "video": {
+        "titulo": "VEDI I CONSIGLI DEL DR. JOSÉ LUIZ",
+        "subtitulo": "Il contatto dei piedi con il suolo è di estrema importanza",
+        "youtubeId": "cUCTsgY63-E",
+        "legenda": "SD120 Só Dança (IT)"
+      },
+      "depoimento": {
+        "pergunta": "COS'È UNA BUONA SCARPETTA PER TE?",
+        "resposta": "Questa scarpetta è molto comoda. La suola è liscia e senza quelle sporgenze. Questo è ottimo perché si danza con maggiore sensibilità... sentiamo di più i piedi a contatto con il pavimento. Ciò garantisce una maggiore precisione. È bello sapere che anche i prodotti per la danza, come tutto al giorno d'oggi, si stanno evolvendo."
+      },
+      "newsletter": {
+        "titulo": "NEWSLETTER",
+        "subtitulo": "Iscriviti alla nostra newsletter per novità esclusive.",
+        "placeholder": "Inserisci la tua email...",
+        "btn_texto": "Iscriviti"
+      },
+      "contato": {
+        "titulo": "VOGLIO ACQUISTARE",
+        "nome": "Nome",
+        "email": "Email",
+        "mensagem": "Messaggio",
+        "btn_enviar": "INVIA MESSAGGIO"
+      }
+    },
+    "es": {
+      "nome": "Latina America",
+      "flag": "🌎",
+      "seo": {
+        "titulo": "SD120 Super Pro Só Dança - Zapatillas de Ballet Premium",
+        "descricao": "Só Dança innova y presenta un concepto único de pie derecho y pie izquierdo para zapatillas de media punta.",
+        "regiao": "MX-MEX",
+        "cidade": "Ciudad de México",
+        "llm_descricao": "Página oficial de la zapatilla de ballet premium SD120 Super Pro de Só Dança, que destaca el ajuste anatómico, la estructura de pie derecho/izquierdo y el diseño artesanal."
+      },
+      "hero": {
+        "titulo": "SD120 Super Pro Só Dança",
+        "subtitulo": "Só Dança innova y presenta un concepto único de pie derecho y pie izquierdo para zapatillas de media punta.",
+        "btn_contato": "Contáctanos"
+      },
+      "diferenciais": {
+        "titulo": "CONOCE LOS DIFERENCIALES DE LA SD120 SUPER PRO SÓ DANÇA",
+        "itens": [
+          "Zapatilla pie derecho y pie izquierdo",
+          "Lona Stretch - Tejido elástico que promueve un increíble confort y adherencia a los contornos del pie",
+          "Costura central simple - Mejor ajuste",
+          "Suela especial - Mayor sensibilidad y conexión con el piso",
+          "Cinta elástica, sin necesidad de nudos, proporcionando mayor confort y practicidad",
+          "Elásticos cruzados cosidos"
+        ]
+      },
+      "cores": {
+        "titulo": "COLORES QUE COMBINAN CON TU VESTUARIO",
+        "opcoes": [
+          { "nome": "Nude", "hex": "#e8c5b0" },
+          { "nome": "Rosa", "hex": "#f6c3ce" },
+          { "nome": "Negro", "hex": "#1a1a1a" },
+          { "nome": "Blanco", "hex": "#ffffff" }
+        ]
+      },
+      "tecnologia": {
+        "titulo": "TECNOLOGÍA Y DESTREZA EN EL MONTAJE",
+        "colunas": [
+          {
+            "texto": "Fabricación que mezcla la tecnología de los equipos y de la materia prima con el refinamiento de artesanos montadores."
+          },
+          {
+            "texto": "La estructura del tejido elástico, por nosotros llamado Lona Stretch, tiene un ajuste inigualable, muy cómodo, que se ajusta a todos los tipos de pies, contorneando perfectamente el arco y los dedos, sin dejar tejido sobrante."
+          },
+          {
+            "texto": "La suela fue diseñada para dar más resistencia y al mismo tempo reducir la fricción y la incomodidad causada por las protuberancias típicas de las zapatillas de media punta."
+          }
+        ]
+      },
+      "ajuste": {
+        "titulo": "¡SD120 SUPER PRO UN AJUSTE PERFECTO!",
+        "descricao": "Además de toda esta facilidad de ajuste, la SD120 Super Pro ofrece también varios anchos de hormas y tamaños de medio en medio número, así, todos – desde niños, principiantes hasta adultos, bailarines profesionales – pueden disfrutar de la comodidad y precisión que solo Só Dança ofrece.",
+        "bullets": [
+          "Lona Stretch",
+          "Anchos: A – B – C – D – E – EE",
+          "Tallas: 2 al 11½ (A – B – C – D)",
+          "Tallas: 5 al 11½ (E – EE)"
+        ]
+      },
+      "video": {
+        "titulo": "VER CONSEJOS DEL DR. JOSÉ LUIZ",
+        "subtitulo": "El contacto de los pies con el suelo es de extrema importancia",
+        "youtubeId": "G4AcK4ppfoU",
+        "legenda": "SD120 Só Dança (ES)"
+      },
+      "depoimento": {
+        "pergunta": "¿QUÉ ES UNA BUENA ZAPATILLA PARA TI?",
+        "resposta": "Esta zapatilla es muy cómoda. La suela es lisa y sin esas ondulaciones. Esto es muy bueno porque bailas con mayor sensibilidad... sentimos más los pies en contacto con el piso. Esto proporciona una mayor precisión. Es muy bueno saber que los productos para la danza, al igual que todo hoy en día, también están evolucionando."
+      },
+      "newsletter": {
+        "titulo": "BOLETÍN INFORMATIVO",
+        "subtitulo": "Regístrate en nuestro boletín para recibir noticias exclusivas.",
+        "placeholder": "Introduce tu correo...",
+        "btn_texto": "Suscribirse"
+      },
+      "contato": {
+        "titulo": "QUIERO COMPRAR",
+        "nome": "Nombre",
+        "email": "Email",
+        "mensagem": "Mensaje",
+        "btn_enviar": "ENVIAR MENSAJE"
+      }
+    }
+  }
+}

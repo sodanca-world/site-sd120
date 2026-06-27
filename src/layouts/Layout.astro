@@ -1,0 +1,117 @@
+---
+import siteData from '../data/siteData.json';
+import GoogleTagManager from '../components/GoogleTagManager.astro';
+import '../styles/global.css';
+
+interface Props {
+  lang: 'pt' | 'en' | 'au' | 'fr' | 'it' | 'es';
+}
+
+const { lang } = Astro.props;
+const data = siteData.idiomas[lang];
+const { configuracoes } = siteData;
+
+const title = data.seo.titulo || `${data.hero.titulo} - ${configuracoes.empresa_nome}`;
+const description = data.seo.descricao;
+const canonical = Astro.url.href;
+
+// Configuração geográfica por região/idioma
+const geoRegions = {
+  pt: { region: "BR-SP", placename: "São Paulo", position: "-23.550520;-46.633308" },
+  en: { region: "US-NY", placename: "New York", position: "40.712776;-74.005974" },
+  au: { region: "AU-NSW", placename: "Sydney", position: "-33.868820;151.209296" },
+  fr: { region: "FR-IDF", placename: "Paris", position: "48.856614;2.352222" },
+  it: { region: "IT-RM", placename: "Roma", position: "41.902783;12.496366" },
+  es: { region: "MX-MEX", placename: "Ciudad de México", position: "19.432608;-99.133208" }
+};
+
+const geo = geoRegions[lang] || geoRegions.pt;
+
+// Schema LocalBusiness unificado
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "SportsGoodsStore"],
+  "@id": `${configuracoes.empresa_site_base}/#business`,
+  "name": configuracoes.empresa_nome,
+  "url": configuracoes.empresa_site_base,
+  "logo": `${configuracoes.empresa_site_base}/assets/images/${configuracoes.empresa_logo_imagem}`,
+  "description": description,
+  "telephone": `+${configuracoes.empresa_whatsapp}`,
+  "email": configuracoes.empresa_email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": geo.placename,
+    "addressRegion": geo.region.split("-")[1] || geo.region,
+    "addressCountry": geo.region.split("-")[0]
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- GEO-targeting -->
+    <meta name="geo.region" content={geo.region} />
+    <meta name="geo.placename" content={geo.placename} />
+    <meta name="geo.position" content={geo.position} />
+    <meta name="ICBM" content={geo.position.replace(';', ', ')} />
+
+    <!-- Speakable Specification (AEO) -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-title", ".hero-subtitle", ".diferenciais-section h2", ".ajuste-desc"]
+      }
+    </script>
+
+    <!-- LLM Description (AEO) -->
+    <meta name="llm-description" content={data.seo.llm_descricao} />
+
+    <!-- Injeção do Schema estruturado -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} is:inline />
+    
+    <!-- Google Tag Manager (Head) -->
+    <GoogleTagManager />
+  </head>
+  <body>
+    <!-- Google Tag Manager (Body NoScript) -->
+    <GoogleTagManager bodyTag />
+    
+    <!-- Conteúdo da Página -->
+    <slot />
+
+    <!-- Script de Animação de Revelação de Scroll -->
+    <script>
+      // Função simples para animar elementos no scroll
+      const reveals = document.querySelectorAll('.reveal');
+      
+      const revealOnScroll = () => {
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = reveals[i].getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+          }
+        }
+      };
+
+      // Executa no carregamento e no scroll
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+      revealOnScroll();
+    </script>
+  </body>
+</html>

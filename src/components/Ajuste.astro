@@ -1,0 +1,157 @@
+---
+interface Props {
+  ajuste: {
+    titulo: string;
+    descricao: string;
+    bullets: string[];
+  };
+}
+
+const { ajuste } = Astro.props;
+---
+
+<section id="ajuste" class="ajuste-section section-padding">
+  <div class="container">
+    <div class="grid-2 ajuste-grid">
+      <!-- Coluna Texto -->
+      <div class="ajuste-content reveal">
+        <h2 class="ajuste-title" set:html={ajuste.titulo}></h2>
+        <p class="ajuste-desc">{ajuste.descricao}</p>
+        <div class="section-underline"></div>
+        
+        <ul class="ajuste-bullets">
+          {ajuste.bullets.map((bullet) => (
+            <li class="bullet-item">
+              <span class="check-icon">
+                <svg viewBox="0 0 512 512" fill="currentColor">
+                  <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/>
+                </svg>
+              </span>
+              <span class="bullet-text">{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Coluna Imagem -->
+      <div class="ajuste-img-container reveal delay-1">
+        <div class="img-frame">
+          <img 
+            src="/assets/images/ajuste_sodanca.png" 
+            alt="SD120 Ajuste Perfeito Meia-Ponta" 
+            class="ajuste-img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ajuste-section {
+    background-color: var(--color-white);
+    position: relative;
+  }
+
+  .ajuste-grid {
+    align-items: center;
+  }
+
+  .ajuste-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+  }
+
+  .section-underline {
+    width: 100px;
+    height: 2px;
+    background-color: var(--color-border);
+    margin-bottom: 32px;
+    border-radius: 1px;
+  }
+
+  .ajuste-desc {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .ajuste-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bullet-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .check-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    background-color: #2e7d32;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+  }
+
+  .check-icon svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .bullet-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+  }
+
+  /* --- IMAGEM DE AJUSTE --- */
+  .ajuste-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-frame {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-smooth);
+  }
+
+  .img-frame:hover {
+    transform: scale(1.02);
+  }
+
+  .ajuste-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  @media (max-width: 992px) {
+    .ajuste-title {
+      font-size: 2rem;
+    }
+    .img-frame {
+      max-width: 400px;
+      margin-top: 24px;
+    }
+  }
+</style>

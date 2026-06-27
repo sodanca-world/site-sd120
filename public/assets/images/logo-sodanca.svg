@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="100%" height="100%">
+  <defs>
+    <style>
+      .logo-title {
+        font-family: 'Outfit', 'Georgia', 'Times New Roman', serif;
+        font-size: 32px;
+        font-weight: 800;
+        fill: #ffffff;
+        letter-spacing: 1px;
+      }
+      .logo-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+        fill: #ffffff;
+        letter-spacing: 5px;
+      }
+    </style>
+  </defs>
+  <!-- Texto principal "Só Dança" -->
+  <text x="10" y="45" class="logo-title">Só Dança</text>
+  <!-- Subtexto "JUST DANCE" -->
+  <text x="12" y="65" class="logo-subtitle">JUST DANCE</text>
+</svg>

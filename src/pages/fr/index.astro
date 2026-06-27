@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Diferenciais from '../../components/Diferenciais.astro';
+import Tecnologia from '../../components/Tecnologia.astro';
+import Ajuste from '../../components/Ajuste.astro';
+import VideoTips from '../../components/VideoTips.astro';
+import Depoimento from '../../components/Depoimento.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import Contato from '../../components/Contato.astro';
+import Footer from '../../components/Footer.astro';
+
+import siteData from '../../data/siteData.json';
+
+const lang = 'fr';
+const data = siteData.idiomas[lang];
+---
+
+<Layout lang={lang}>
+  <Hero lang={lang} hero={data.hero} />
+  <Diferenciais diferenciais={data.diferenciais} />
+  <Tecnologia tecnologia={data.tecnologia} />
+  <Ajuste ajuste={data.ajuste} />
+  <VideoTips video={data.video} />
+  <Depoimento depoimento={data.depoimento} />
+  <Newsletter newsletter={data.newsletter} />
+  <Contato contato={data.contato} />
+  <Footer lang={lang} />
+</Layout>

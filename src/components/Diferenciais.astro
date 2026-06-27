@@ -1,0 +1,220 @@
+---
+interface Props {
+  diferenciais: {
+    titulo: string;
+    itens: string[];
+  };
+}
+
+const { diferenciais } = Astro.props;
+
+// Separar itens em esquerda (primeiros 3) e direita (últimos 3)
+const itensEsquerda = diferenciais.itens.slice(0, 3);
+const itensDireita = diferenciais.itens.slice(3, 6);
+
+// Ícones SVG personalizados para cada posição para dar dinamismo premium
+const iconesEsquerda = [
+  // Leveza (Pluma / Asa)
+  `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M512 64c0-17.67-14.33-32-32-32H384c-70.69 0-128 57.3-128 128v16c0 8.8 7.2 16 16 16h16c70.69 0 128-57.31 128-128V80c0-8.8 7.2-16 16-16h48c17.67 0 32 14.33 32 32v160c0 41.5-12.8 80.31-35.3 112L416 352H288l-64 64H112L32 496H0v-32l80-80v-112l64-64h128l32-12.7c31.69-22.5 70.5-35.3 112-35.3h32c17.67 0 32-14.33 32-32V64z"/></svg>`,
+  // Anatômico (Curva / Arco / Pé)
+  `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M448 32c-35.3 0-64 28.7-64 64v32h-64v-32c0-35.3-28.7-64-64-64h-64c-35.3 0-64 28.7-64 64v224h128v32h-64v64h128c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zM96 352h64v128H96c-17.7 0-32-14.3-32-32v-64c0-17.7 14.3-32 32-32z"/></svg>`,
+  // R&L (Esquerda/Direita)
+  `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M0 256C0 114.6 114.6 0 256 0s256 114.6 256 256-114.6 256-256 256S0 397.4 0 256zm256-192c-106 0-192 86-192 192s86 192 192 192 192-86 192-192S362 64 256 64z"/></svg>`
+];
+
+const iconesDireita = [
+  // Calcanhar / Shock absorber
+  `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M128 32h256v64H128zM96 128h320v92c0 28.3-5.3 56-15.6 82.2L352 480H160L111.6 302.2C101.3 276 96 248.3 96 220v-92z"/></svg>`,
+  // Elástico Cruzado
+  `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512S0 397.4 0 256S114.6 0 256 0zM175 175c-9.4 9.4-9.4 24.6 0 33.9l62.1 62.1-62.1 62.1c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l62.1-62.1 62.1 62.1c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-62.1-62.1 62.1-62.1c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-62.1 62.1-62.1-62.1c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>`,
+  // Acabamento Fita Elástica
+  `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M496 128c0-17.7-14.3-32-32-32H48c-17.7 0-32 14.3-32 32v256c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V128zM256 320c-35.3 0-64-28.7-64-64s28.7-64 64-64 64 28.7 64 64-28.7 64-64 64z"/></svg>`
+];
+---
+
+<section id="diferenciais" class="diferenciais-section section-padding">
+  <div class="container">
+    <h2 class="section-title reveal" set:html={diferenciais.titulo}></h2>
+    <div class="section-divider reveal"></div>
+    
+    <div class="diferenciais-layout">
+      <!-- Coluna Esquerda -->
+      <div class="diferenciais-col col-esquerda">
+        {itensEsquerda.map((item, idx) => (
+          <div class="diferencial-card reveal delay-1">
+            <div class="icon-box" set:html={iconesEsquerda[idx]}></div>
+            <div class="content-box">
+              <h3>{item}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Imagem Central -->
+      <div class="diferenciais-img-box reveal">
+        <div class="img-glow-bg"></div>
+        <img 
+          src="/assets/images/diferencial_sodanca.png" 
+          alt="SD120 Super Pró Só Dança Anatomia" 
+          class="diferencial-img"
+          loading="lazy"
+        />
+      </div>
+      
+      <!-- Coluna Direita -->
+      <div class="diferenciais-col col-direita">
+        {itensDireita.map((item, idx) => (
+          <div class="diferencial-card reveal delay-2">
+            <div class="icon-box" set:html={iconesDireita[idx]}></div>
+            <div class="content-box">
+              <h3>{item}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .diferenciais-section {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary);
+    margin: -8px auto 60px auto;
+    border-radius: 2px;
+  }
+
+  .diferenciais-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .diferenciais-col {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .diferencial-card {
+    display: flex;
+    gap: 20px;
+    transition: var(--transition-smooth);
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .diferencial-card:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+  }
+
+  .col-esquerda .diferencial-card {
+    text-align: right;
+    flex-direction: row-reverse;
+  }
+
+  .col-direita .diferencial-card {
+    text-align: left;
+    flex-direction: row;
+  }
+
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.2);
+    padding: 12px;
+    transition: var(--transition-smooth);
+  }
+
+  .diferencial-card:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .icon-box :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-box h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text-dark);
+  }
+
+  /* --- IMAGEM CENTRAL --- */
+  .diferenciais-img-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-glow-bg {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.1) 0%, rgba(255,255,255,0) 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .diferencial-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
+    transition: var(--transition-smooth);
+  }
+
+  .diferenciais-img-box:hover .diferencial-img {
+    transform: scale(1.03) rotate(-1deg);
+  }
+
+  /* --- RESPONSIVIDADE --- */
+  @media (max-width: 1200px) {
+    .diferenciais-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+    .diferenciais-img-box {
+      grid-column: span 2;
+      order: -1;
+      margin-bottom: 40px;
+    }
+    .col-esquerda .diferencial-card {
+      text-align: left;
+      flex-direction: row;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .diferenciais-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .diferenciais-img-box {
+      grid-column: span 1;
+    }
+    .diferenciais-col {
+      gap: 32px;
+    }
+  }
+</style>

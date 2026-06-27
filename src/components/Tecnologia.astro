@@ -1,0 +1,63 @@
+---
+interface Props {
+  tecnologia: {
+    titulo: string;
+    colunas: {
+      texto: string;
+    }[];
+  };
+}
+
+const { tecnologia } = Astro.props;
+---
+
+<section id="tecnologia" class="tecnologia-section section-padding">
+  <div class="container">
+    <h2 class="section-title reveal" set:html={tecnologia.titulo}></h2>
+    
+    <div class="grid-3 tecnologia-grid">
+      {tecnologia.colunas.map((coluna) => (
+        <div class="tecnologia-col reveal delay-1">
+          <p class="col-text">{coluna.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tecnologia-section {
+    background-color: var(--color-white);
+    position: relative;
+  }
+
+  .tecnologia-grid {
+    margin-top: 60px;
+    gap: 40px;
+  }
+
+  .tecnologia-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .col-text {
+    font-size: 1.05rem;
+    color: var(--color-text-dark);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  @media (max-width: 992px) {
+    .tecnologia-grid {
+      margin-top: 40px;
+      gap: 30px;
+    }
+    
+    .col-text {
+      font-size: 1rem;
+    }
+  }
+</style>

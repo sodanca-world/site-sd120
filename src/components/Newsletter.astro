@@ -1,0 +1,199 @@
+---
+interface Props {
+  newsletter: {
+    titulo: string;
+    subtitulo: string;
+    placeholder: string;
+    btn_texto: string;
+  };
+}
+
+const { newsletter } = Astro.props;
+---
+
+<section class="newsletter-section section-padding">
+  <div class="container newsletter-container">
+    <div class="newsletter-content reveal">
+      <h2 class="section-title">{newsletter.titulo}</h2>
+      <p class="section-subtitle">{newsletter.subtitulo}</p>
+      
+      <form class="newsletter-form" id="newsletter-form">
+        <div class="input-wrapper">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder={newsletter.placeholder} 
+            required 
+            class="newsletter-input"
+            aria-label={newsletter.placeholder}
+          />
+          <button type="submit" class="newsletter-btn" aria-label={newsletter.btn_texto}>
+            <span class="btn-text">{newsletter.btn_texto}</span>
+            <span class="btn-icon">
+              <!-- Seta simples SVG -->
+              <svg viewBox="0 0 448 512" fill="currentColor">
+                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </form>
+      <div id="newsletter-message" class="newsletter-feedback-msg"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter-section {
+    background-color: var(--color-white);
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .newsletter-container {
+    max-width: 700px;
+  }
+
+  .newsletter-form {
+    margin-top: 30px;
+  }
+
+  .input-wrapper {
+    display: flex;
+    background-color: var(--color-light);
+    border: 1.5px solid var(--color-border);
+    border-radius: 50px;
+    padding: 6px;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .input-wrapper:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.15);
+    background-color: var(--color-white);
+  }
+
+  .newsletter-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    outline: none;
+    width: 100%;
+  }
+
+  .newsletter-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.2);
+  }
+
+  .newsletter-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateX(2px);
+  }
+
+  .btn-icon svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+    transition: var(--transition-smooth);
+  }
+
+  .newsletter-btn:hover .btn-icon svg {
+    transform: translateX(4px);
+  }
+
+  .newsletter-feedback-msg {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: var(--transition-smooth);
+  }
+
+  .newsletter-feedback-msg.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .newsletter-feedback-msg.success {
+    color: #2e7d32;
+  }
+
+  .newsletter-feedback-msg.error {
+    color: #c62828;
+  }
+
+  @media (max-width: 576px) {
+    .input-wrapper {
+      flex-direction: column;
+      border-radius: var(--radius-md);
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      gap: 12px;
+      padding: 0;
+    }
+    .newsletter-input {
+      border: 1.5px solid var(--color-border);
+      border-radius: 30px;
+      background-color: var(--color-light);
+      padding: 16px 24px;
+    }
+    .newsletter-input:focus {
+      border-color: var(--color-primary);
+      background-color: var(--color-white);
+    }
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('newsletter-form');
+    const feedback = document.getElementById('newsletter-message');
+
+    if (form && feedback) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simulação elegante de envio de newsletter
+        feedback.textContent = 'Enviando...';
+        feedback.className = 'newsletter-feedback-msg show';
+        
+        setTimeout(() => {
+          feedback.textContent = 'Obrigado por se inscrever!';
+          feedback.className = 'newsletter-feedback-msg show success';
+          (form as HTMLFormElement).reset();
+          
+          // Ocultar mensagem de sucesso após 5 segundos
+          setTimeout(() => {
+            feedback.className = 'newsletter-feedback-msg';
+          }, 5000);
+        }, 1200);
+      });
+    }
+  });
+</script>
