@@ -4,7 +4,8 @@
     "empresa_logo_imagem": "logo-sodanca.svg",
     "empresa_whatsapp": "5511999999999",
     "empresa_email": "kreativbr@kreativbr.com",
-    "empresa_site_base": "https://sodanca.com"
+    "empresa_site_base": "https://sodanca.com",
+    "formspree_id": "SEU_ID_DO_FORMSPREE"
   },
   "idiomas": {
     "pt": {
