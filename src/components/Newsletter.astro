@@ -1,4 +1,6 @@
 ---
+import siteData from '../data/siteData.json';
+
 interface Props {
   newsletter: {
     titulo: string;
@@ -9,6 +11,24 @@ interface Props {
 }
 
 const { newsletter } = Astro.props;
+const webhookUrl = siteData.configuracoes.webhook_url || '';
+const webhookToken = siteData.configuracoes.webhook_token || '';
+const emailDestino = siteData.configuracoes.email_destino || '';
+
+// Detecta o idioma dinamicamente pela URL para identificar a origem
+const pathname = Astro.url.pathname;
+const langSegment = pathname.split('/').filter(Boolean)[0] || 'pt';
+const idiomasNomes = {
+  pt: "Português",
+  en: "English",
+  au: "Australia",
+  fr: "France",
+  it: "Italia",
+  es: "Latina America"
+};
+const langName = idiomasNomes[langSegment as keyof typeof idiomasNomes] || "Português";
+const subjectValue = `Newsletter site sd120 ${langName}`;
+const siteValue = `SD120 Só Dança - ${langName}`;
 ---
 
 <section class="newsletter-section section-padding">
@@ -17,7 +37,12 @@ const { newsletter } = Astro.props;
       <h2 class="section-title">{newsletter.titulo}</h2>
       <p class="section-subtitle">{newsletter.subtitulo}</p>
       
-      <form class="newsletter-form" id="newsletter-form">
+      <form class="newsletter-form" id="newsletter-form" action={webhookUrl} method="POST">
+        <input type="hidden" name="_site" value={siteValue} />
+        <input type="hidden" name="_form" value="Newsletter" />
+        <input type="hidden" name="_subject" value={subjectValue} />
+        <input type="hidden" name="_token" value={webhookToken} />
+        <input type="hidden" name="_to" value={emailDestino} />
         <div class="input-wrapper">
           <input 
             type="email" 
@@ -179,20 +204,39 @@ const { newsletter } = Astro.props;
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Simulação elegante de envio de newsletter
         feedback.textContent = 'Enviando...';
         feedback.className = 'newsletter-feedback-msg show';
-        
-        setTimeout(() => {
-          feedback.textContent = 'Obrigado por se inscrever!';
-          feedback.className = 'newsletter-feedback-msg show success';
-          (form as HTMLFormElement).reset();
-          
-          // Ocultar mensagem de sucesso após 5 segundos
+
+        const formData = new FormData(form as HTMLFormElement);
+        const data = Object.fromEntries(formData.entries());
+        const targetUrl = form.getAttribute('action') || '';
+
+        fetch(targetUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => {
+          if (response.ok) {
+            feedback.textContent = 'Obrigado por se inscrever!';
+            feedback.className = 'newsletter-feedback-msg show success';
+            (form as HTMLFormElement).reset();
+          } else {
+            feedback.textContent = 'Ocorreu um erro. Tente novamente mais tarde.';
+            feedback.className = 'newsletter-feedback-msg show error';
+          }
+        })
+        .catch(() => {
+          feedback.textContent = 'Erro de conexão. Tente novamente mais tarde.';
+          feedback.className = 'newsletter-feedback-msg show error';
+        })
+        .finally(() => {
           setTimeout(() => {
             feedback.className = 'newsletter-feedback-msg';
           }, 5000);
-        }, 1200);
+        });
       });
     }
   });

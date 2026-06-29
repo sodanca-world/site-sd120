@@ -1,11 +1,13 @@
 {
   "configuracoes": {
     "empresa_nome": "Só Dança",
-    "empresa_logo_imagem": "logo-sodanca.svg",
+    "empresa_logo_imagem": "logo_sodanca-Branca-700x242-just-dance.png",
     "empresa_whatsapp": "5511999999999",
     "empresa_email": "kreativbr@kreativbr.com",
     "empresa_site_base": "https://sodanca.com",
-    "formspree_id": "SEU_ID_DO_FORMSPREE"
+    "webhook_url": "https://n8n.netcidade.com/webhook/forms-geral",
+    "webhook_token": "netcidade-secure-token-2026",
+    "email_destino": "kreativbr@kreativbr.com"
   },
   "idiomas": {
     "pt": {
@@ -37,10 +39,22 @@
       "cores": {
         "titulo": "CORES QUE COMBINAM COM SEU FIGURINO",
         "opcoes": [
-          { "nome": "Nude", "hex": "#e8c5b0" },
-          { "nome": "Rosa", "hex": "#f6c3ce" },
-          { "nome": "Preto", "hex": "#1a1a1a" },
-          { "nome": "Branco", "hex": "#ffffff" }
+          {
+            "nome": "Nude",
+            "hex": "#e8c5b0"
+          },
+          {
+            "nome": "Rosa",
+            "hex": "#f6c3ce"
+          },
+          {
+            "nome": "Preto",
+            "hex": "#1a1a1a"
+          },
+          {
+            "nome": "Branco",
+            "hex": "#ffffff"
+          }
         ]
       },
       "tecnologia": {
@@ -120,10 +134,22 @@
       "cores": {
         "titulo": "COLORS TO MATCH WITH YOUR COSTUME",
         "opcoes": [
-          { "nome": "Nude", "hex": "#e8c5b0" },
-          { "nome": "Pink", "hex": "#f6c3ce" },
-          { "nome": "Black", "hex": "#1a1a1a" },
-          { "nome": "White", "hex": "#ffffff" }
+          {
+            "nome": "Nude",
+            "hex": "#e8c5b0"
+          },
+          {
+            "nome": "Pink",
+            "hex": "#f6c3ce"
+          },
+          {
+            "nome": "Black",
+            "hex": "#1a1a1a"
+          },
+          {
+            "nome": "White",
+            "hex": "#ffffff"
+          }
         ]
       },
       "tecnologia": {
@@ -203,10 +229,22 @@
       "cores": {
         "titulo": "COLORS TO MATCH WITH YOUR COSTUME",
         "opcoes": [
-          { "nome": "Nude", "hex": "#e8c5b0" },
-          { "nome": "Pink", "hex": "#f6c3ce" },
-          { "nome": "Black", "hex": "#1a1a1a" },
-          { "nome": "White", "hex": "#ffffff" }
+          {
+            "nome": "Nude",
+            "hex": "#e8c5b0"
+          },
+          {
+            "nome": "Pink",
+            "hex": "#f6c3ce"
+          },
+          {
+            "nome": "Black",
+            "hex": "#1a1a1a"
+          },
+          {
+            "nome": "White",
+            "hex": "#ffffff"
+          }
         ]
       },
       "tecnologia": {
@@ -286,10 +324,22 @@
       "cores": {
         "titulo": "DES COULEURS QUI SE MARIENT AVEC VOTRE GARDE-ROBE",
         "opcoes": [
-          { "nome": "Saumon", "hex": "#e8c5b0" },
-          { "nome": "Rosa", "hex": "#f6c3ce" },
-          { "nome": "Noir", "hex": "#1a1a1a" },
-          { "nome": "Blanc", "hex": "#ffffff" }
+          {
+            "nome": "Saumon",
+            "hex": "#e8c5b0"
+          },
+          {
+            "nome": "Rosa",
+            "hex": "#f6c3ce"
+          },
+          {
+            "nome": "Noir",
+            "hex": "#1a1a1a"
+          },
+          {
+            "nome": "Blanc",
+            "hex": "#ffffff"
+          }
         ]
       },
       "tecnologia": {
@@ -369,10 +419,22 @@
       "cores": {
         "titulo": "COLORI DA ABBINARE AL TUO COSTUME",
         "opcoes": [
-          { "nome": "Nudo", "hex": "#e8c5b0" },
-          { "nome": "Rosa", "hex": "#f6c3ce" },
-          { "nome": "Nero", "hex": "#1a1a1a" },
-          { "nome": "Bianco", "hex": "#ffffff" }
+          {
+            "nome": "Nudo",
+            "hex": "#e8c5b0"
+          },
+          {
+            "nome": "Rosa",
+            "hex": "#f6c3ce"
+          },
+          {
+            "nome": "Nero",
+            "hex": "#1a1a1a"
+          },
+          {
+            "nome": "Bianco",
+            "hex": "#ffffff"
+          }
         ]
       },
       "tecnologia": {
@@ -425,7 +487,7 @@
     },
     "es": {
       "nome": "Latina America",
-      "flag": "🌎",
+      "flag": "LA",
       "seo": {
         "titulo": "SD120 Super Pro Só Dança - Zapatillas de Ballet Premium",
         "descricao": "Só Dança innova y presenta un concepto único de pie derecho y pie izquierdo para zapatillas de media punta.",
@@ -452,10 +514,22 @@
       "cores": {
         "titulo": "COLORES QUE COMBINAN CON TU VESTUARIO",
         "opcoes": [
-          { "nome": "Nude", "hex": "#e8c5b0" },
-          { "nome": "Rosa", "hex": "#f6c3ce" },
-          { "nome": "Negro", "hex": "#1a1a1a" },
-          { "nome": "Blanco", "hex": "#ffffff" }
+          {
+            "nome": "Nude",
+            "hex": "#e8c5b0"
+          },
+          {
+            "nome": "Rosa",
+            "hex": "#f6c3ce"
+          },
+          {
+            "nome": "Negro",
+            "hex": "#1a1a1a"
+          },
+          {
+            "nome": "Blanco",
+            "hex": "#ffffff"
+          }
         ]
       },
       "tecnologia": {

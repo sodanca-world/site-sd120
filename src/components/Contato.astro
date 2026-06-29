@@ -12,7 +12,24 @@ interface Props {
 }
 
 const { contato } = Astro.props;
-const formspreeId = siteData.configuracoes.formspree_id || '';
+const webhookUrl = siteData.configuracoes.webhook_url || '';
+const webhookToken = siteData.configuracoes.webhook_token || '';
+const emailDestino = siteData.configuracoes.email_destino || '';
+
+// Detecta o idioma dinamicamente pela URL para identificar a origem
+const pathname = Astro.url.pathname;
+const langSegment = pathname.split('/').filter(Boolean)[0] || 'pt';
+const idiomasNomes = {
+  pt: "Português",
+  en: "English",
+  au: "Australia",
+  fr: "France",
+  it: "Italia",
+  es: "Latina America"
+};
+const langName = idiomasNomes[langSegment as keyof typeof idiomasNomes] || "Português";
+const subjectValue = `Formulário site sd120 ${langName}`;
+const siteValue = `SD120 Só Dança - ${langName}`;
 ---
 
 <section id="contato" class="contato-section section-padding">
@@ -21,7 +38,12 @@ const formspreeId = siteData.configuracoes.formspree_id || '';
       <h2 class="contato-title">{contato.titulo}</h2>
       <div class="section-underline"></div>
       
-      <form class="contato-form" id="contato-form" action={`https://formspree.io/f/${formspreeId}`} method="POST">
+      <form class="contato-form" id="contato-form" action={webhookUrl} method="POST">
+        <input type="hidden" name="_site" value={siteValue} />
+        <input type="hidden" name="_form" value="Contato" />
+        <input type="hidden" name="_subject" value={subjectValue} />
+        <input type="hidden" name="_token" value={webhookToken} />
+        <input type="hidden" name="_to" value={emailDestino} />
         <!-- Grid de 2 colunas para Nome e E-mail -->
         <div class="form-row">
           <div class="input-group">
@@ -222,14 +244,15 @@ const formspreeId = siteData.configuracoes.formspree_id || '';
         feedback.className = 'contato-feedback-msg';
 
         const formData = new FormData(form as HTMLFormElement);
-        const formspreeUrl = form.getAttribute('action') || '';
+        const data = Object.fromEntries(formData.entries());
+        const targetUrl = form.getAttribute('action') || '';
 
-        fetch(formspreeUrl, {
+        fetch(targetUrl, {
           method: 'POST',
-          body: formData,
           headers: {
-            'Accept': 'application/json'
-          }
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
         .then(response => {
           if (response.ok) {
@@ -237,17 +260,8 @@ const formspreeId = siteData.configuracoes.formspree_id || '';
             feedback.className = 'contato-feedback-msg show success';
             (form as HTMLFormElement).reset();
           } else {
-            response.json().then(data => {
-              if (data && data.errors) {
-                feedback.textContent = data.errors.map((error: any) => error.message).join(", ");
-              } else {
-                feedback.textContent = 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.';
-              }
-              feedback.className = 'contato-feedback-msg show error';
-            }).catch(() => {
-              feedback.textContent = 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.';
-              feedback.className = 'contato-feedback-msg show error';
-            });
+            feedback.textContent = 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.';
+            feedback.className = 'contato-feedback-msg show error';
           }
         })
         .catch(() => {

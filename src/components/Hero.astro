@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { lang, hero } = Astro.props;
-const { idiomas } = siteData;
+const { idiomas, configuracoes } = siteData;
 
 // Mapeamento de caminhos de idioma
 const langPaths = {
@@ -28,7 +28,7 @@ const langPaths = {
   <div class="container navbar-container">
     <a href="/" class="logo" aria-label="Só Dança Home">
       <div class="logo-wrapper">
-        <img src="/assets/images/logo-sodanca.svg" alt="Só Dança Logo" class="logo-img" />
+        <img src={`/assets/images/${configuracoes.empresa_logo_imagem}`} alt="Só Dança Logo" class="logo-img" />
       </div>
     </a>
     
@@ -41,7 +41,6 @@ const langPaths = {
               class={`lang-link ${key === lang ? 'active' : ''}`}
               title={value.nome}
             >
-              <span class="flag">{value.flag}</span>
               <span class="lang-code">{key.toUpperCase()}</span>
             </a>
           </li>
@@ -144,9 +143,6 @@ const langPaths = {
   @media (max-width: 768px) {
     .logo-wrapper {
       width: 140px;
-    }
-    .lang-code {
-      display: none; /* Esconde código de texto no mobile, exibe só flags */
     }
     .lang-link {
       padding: 4px;

@@ -2,7 +2,7 @@
 import siteData from '../data/siteData.json';
 import '../styles/global.css';
 
-const { idiomas } = siteData;
+const { idiomas, configuracoes } = siteData;
 
 const langPaths = {
   pt: '/pt/',
@@ -21,7 +21,7 @@ const langPaths = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Só Dança - SD120 Super Pró</title>
     <meta name="description" content="Escolha seu idioma para conhecer a sapatilha de meia-ponta premium SD120 Super Pró Só Dança." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/jpeg" href="/assets/images/boneco-so-danca-400x400.jpg" />
     
     <!-- Meta tags AEO básicas -->
     <meta name="llm-description" content="Página de seleção de idioma oficial da Só Dança para a sapatilha premium SD120 Super Pró." />
@@ -33,7 +33,7 @@ const langPaths = {
       <div class="container select-container">
         <!-- Logotipo centralizado -->
         <div class="logo-box reveal">
-          <img src="/assets/images/logo-sodanca.svg" alt="Só Dança Logo" class="logo-img" />
+          <img src={`/assets/images/${configuracoes.empresa_logo_imagem}`} alt="Só Dança Logo" class="logo-img" />
         </div>
         
         <!-- Título -->
@@ -48,7 +48,6 @@ const langPaths = {
               class="lang-select-card"
               title={`Acesse em ${value.nome}`}
             >
-              <span class="flag-large">{value.flag}</span>
               <span class="lang-name">{value.nome}</span>
             </a>
           ))}
